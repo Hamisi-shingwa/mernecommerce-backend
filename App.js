@@ -12,7 +12,7 @@ app.use(fileUpload())
 app.use(cors())
 app.use('/api',route)
 
-const conn = mongoose.connect(process.env.MONGO_CONN);
+const conn = mongoose.connect(process.env.CONN);
 if(conn){
     console.log("database connect successfull")
     app.listen(process.env.PORT,()=>console.log(`app listen at port ${process.env.PORT}`))
