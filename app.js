@@ -12,16 +12,13 @@ app.use(fileUpload())
 app.use(cors())
 app.use('/api',route)
 
-async function connection(){
-const conn = await mongoose.connect(process.env.CONN,{
+
+const conn = mongoose.connect(process.env.CONN,{
     useNewUrlParser: true,
     useUnifiedTopology:true,
 });
-  await parseAndLoadPlanetsData();
 if(conn){
     console.log("database connect successfull")
     app.listen(process.env.PORT,()=>console.log(`app listen at port ${process.env.PORT}`))
 }
-}
 
-connection();
